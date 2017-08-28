@@ -76,7 +76,7 @@ let rec react request =
         match cmd.[0] with
          | "list" -> print book
          | "find" -> findAndPrint (String.Join(' ', cmd |> Array.skip 1))
-         | "add" -> add newPerson
+         | "add" -> add (newPerson (String.Join(' ', cmd |> Array.skip 1)))
          | "remove" -> findAndRemove (String.Join(' ', cmd |> Array.skip 1))
          | "save" -> save "book.csv"
          | "cancel" -> printfn "Changes weren't saved"

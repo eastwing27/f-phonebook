@@ -23,7 +23,10 @@ let private deserialize (csv:seq<string>) =
     |> Seq.toList
 
 let private load path =
-    deserialize (path |> File.ReadAllLines)
+    if path |> File.Exists then
+        deserialize (path |> File.ReadAllLines)
+    else
+        []
 
 let mutable private storage = load "book.csv"
 
