@@ -9,7 +9,7 @@ let isIntersect (first:string) (second:string) =
     upperFirst.Contains(upperSecond) || upperSecond.Contains(upperFirst)
 
 let toString p =
-    String.Format("Person: {0} {1}, Phone: {2}", p.FirstName, p.LastName, p.Number)
+    String.Format("Person: {0} {1}, Phone: {2}", p.FirstName, p.LastName, format p.Number)
 
 let flatten pair =
     let head = string (fst pair) |> Seq.singleton
@@ -56,7 +56,7 @@ let rec chooseFromSet set choice =
     else
         printfn "\nPlease specify record to remove"
         set |> Seq.iter (fun item -> printfn "%d) %s, %s" (fst item) ((snd item).LastName) ((snd item).FirstName))
-        ask "Number from list above" |> int |> chooseFromSet set
+        askNumber "Number from list above" |> int |> chooseFromSet set
 
 let findAndRemove person =
     let found = find person

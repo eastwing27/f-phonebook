@@ -16,4 +16,4 @@ let backwardName p =
 let newPerson = 
     {LastName=(ask "Last name"); 
      FirstName=(ask "First name"); 
-     Number=(ask "Phone number")}
+     Number=(askNumber "Phone number (digits only)")}
